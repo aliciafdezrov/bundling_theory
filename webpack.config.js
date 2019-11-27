@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     entry: {
         app: ["regenerator-runtime/runtime", "./students.js"],
-        appStyles: "./mystyle.css",
+        appStyles: "./mystyle.scss",
         vendorStyles: ["./node_modules/bootstrap/dist/css/bootstrap.css"]
     },
     output: {
@@ -31,7 +31,21 @@ module.exports = {
             },
             {
                 test: /\.css$/, //El fichero de estilos de bootstrap está dentro de node-modules por lo que no podemos excluirlo
-                use: [MiniCssExtractPlugin.loader, "css-loader"]
+                use: [MiniCssExtractPlugin.loader, "css-loader"] //En pre-producción podríamos cambiar el mini-css-extract-plugin por el style loader
+            },
+            {
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                use: [
+                    MiniCssExtractPlugin.loader, // creates style nodes from JS strings //En desarrollo este se puede cambiar por styles-loader
+                    "css-loader", // translates CSS into CommonJS
+                    {
+                        loader: "sass-loader", //translates SCSS into CSS
+                        options: {
+                            implementation: require("sass") //By default the sass-loader prefers node-sass. In order to avoid this situation you can use the implementation option
+                        }
+                    }
+                ]
             },
         ]
     },
