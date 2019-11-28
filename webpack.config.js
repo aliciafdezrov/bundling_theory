@@ -6,8 +6,11 @@ const basePath = __dirname;
 
 module.exports = {
     context: path.join(basePath, "src"),
+    resolve: {
+        extensions: [".js", ".jsx"]
+    },
     entry: {
-        app: ["regenerator-runtime/runtime", "./students.js"],
+        app: ["regenerator-runtime/runtime", "./students.jsx"],
         appStyles: "./mystyle.scss",
         vendorStyles: ["../node_modules/bootstrap/dist/css/bootstrap.css"]
     },
