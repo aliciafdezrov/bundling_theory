@@ -63,7 +63,16 @@ module.exports = {
             {
                 test: /\.html$/,
                 loader: "html-loader" //Permite usar imagenes directamente en el html sacándolas.
-            }
+            },
+            {
+                test: /\.(ts|tsx)$/,
+                exclude: /node_modules/,
+                loader: "awesome-typescript-loader",
+                options: {
+                    useBabel: true, //Indica que del final de la transpilación que no hace Typescript (de ES6 a ES5) se encargue babel
+                    babelCore: "@babel/core" // needed for Babel v7
+                }
+            },
         ]
     },
     plugins: [
