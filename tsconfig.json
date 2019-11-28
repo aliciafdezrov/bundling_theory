@@ -1,0 +1,16 @@
+ {
+ "compilerOptions": {
+ "target": "es6", //Hasta que versión de ECMAScript va a transpilar Typescript (luego se pasa el testigo a babel)
+ "module": "es6",
+ "moduleResolution": "node", //Usa la resolución de modulos de nodeJS
+ "declaration": false,
+ "noImplicitAny": false,
+ "jsx": "react", //Con que se van a manejar los archivos de extensión jsx
+ "sourceMap": true, //Permite depurar typescript en Chrome
+ "noLib": false,
+ "suppressImplicitAnyIndexErrors": true,
+ "esModuleInterop": true
+ },
+ "compileOnSave": false,
+ "exclude": ["node_modules"]
+}

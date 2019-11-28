@@ -10,7 +10,7 @@ module.exports = {
         extensions: [".js", ".jsx"]
     },
     entry: {
-        app: ["regenerator-runtime/runtime", "./students.jsx"],
+        app: ["regenerator-runtime/runtime", "./students.tsx"],
         appStyles: "./mystyle.scss",
         vendorStyles: ["../node_modules/bootstrap/dist/css/bootstrap.css"]
     },
