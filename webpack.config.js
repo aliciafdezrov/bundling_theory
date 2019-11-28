@@ -56,6 +56,10 @@ module.exports = {
                 exclude: /node_modules/,
                 //loader: "file-loader"
                 loader: "url-loader?limit=5000" //Me embebe la imagen dentro de mi app.js si ocupa menos de 5Kb
+            },
+            {
+                test: /\.html$/,
+                loader: "html-loader" //Permite usar imagenes directamente en el html sacándolas.
             }
         ]
     },
