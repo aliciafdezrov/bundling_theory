@@ -17,6 +17,7 @@ module.exports = {
     output: {
         filename: "[name].[chunkhash].js"
     },
+    devtool: "inline-source-map", //Depurar TypeScript desde chrome, está configuración sólo sirve para desarrollo.
     optimization: {
         splitChunks: {
             cacheGroups: { //Vamos a especificar que chunks va a haber
