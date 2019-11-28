@@ -32,7 +32,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.jsx?$/, //Si la extensión es .js o .jsx usa babel-loader
                 exclude: /node_modules/,
                 loader: "babel-loader"
             },
