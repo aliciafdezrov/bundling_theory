@@ -1,17 +1,16 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require("path");
-
 const basePath = __dirname;
 
 module.exports = {
     context: path.join(basePath, "src"),
     resolve: {
-        extensions: [".js", ".jsx"]
+        extensions: [".js", ".jsx", ".ts", ".tsx"]
     },
     entry: {
         app: ["regenerator-runtime/runtime", "./students.tsx"],
-        appStyles: "./mystyle.scss",
+        appStyles: ["./mystyle.scss", "./averageComponent.scss"],
         vendorStyles: ["../node_modules/bootstrap/dist/css/bootstrap.css"]
     },
     output: {
@@ -80,7 +79,6 @@ module.exports = {
         new HtmlWebpackPlugin({ //Pega el index.html a dist y le inyecta solo al html el bundle.js
             filename: "index.html", // este el nombre que va a la carpeta dist
             template: "index.html", // fichero origen
-            hash: true
         }),
         new MiniCssExtractPlugin({
             filename: "[name].[chunkhash].css", //Le añadimos el hash para evitar que se cacheen los estilos
