@@ -10,11 +10,7 @@ module.exports = {
     },
     entry: {
         app: ["regenerator-runtime/runtime", "./students.tsx"],
-        appStyles: [
-            "./mystyle.scss",
-            "./averageComponent.scss",
-            "./totalScoreComponentStyles.scss"
-        ],
+        appStyles: ["./mystyle.scss"],
         vendorStyles: ["../node_modules/bootstrap/dist/css/bootstrap.css"]
     },
     output: {
