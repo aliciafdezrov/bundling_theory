@@ -7,7 +7,7 @@
     "build": "rimraf dist && webpack --mode development",
     "start": "webpack-dev-server --mode development --open --config dev.webpack.config.js",
     "build:dev": "rimraf dist && webpack --config dev.webpack.config.js",
-    "build:prod": "rimraf dist && webpack --mode production"
+    "build:prod": "rimraf dist && webpack --config prod.webpack.config.js"
   },
   "keywords": [],
   "author": "",
