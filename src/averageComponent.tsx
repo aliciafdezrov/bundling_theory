@@ -1,5 +1,6 @@
 import React from 'react';
 import { getAvg } from './averageService';
+const classes = require('./averageComponent.scss');
 export const AverageComponent = () => {
     const [average, setAverage] = React.useState(0);
     React.useEffect(() => {
@@ -8,7 +9,10 @@ export const AverageComponent = () => {
     }, []);
     return (
         <div>
-            <span className="result-background">Students average: {average}</span>
+            <span className={classes.resultBackground}>Students average: {average}</span>
+            <div className={`jumbotron ${classes.resultBackground}`}>
+                <h1>Jumbotron students average: {average}</h1>
+            </div>
         </div>
     );
 };

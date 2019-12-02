@@ -45,7 +45,15 @@ module.exports = {
                 exclude: /node_modules/,
                 use: [
                     MiniCssExtractPlugin.loader, // creates style nodes from JS strings //En desarrollo este se puede cambiar por styles-loader
-                    "css-loader", // translates CSS into CommonJS
+                    {
+                        loader: "css-loader", // translates CSS into CommonJS
+                        options: {
+                            modules: {
+                                localIdentName: '[name]_[local]_[hash:base64:5]'
+                            },
+                            localsConvention: 'camelCase', //permite usar los estilos con camel case en vez de usando el nombre original de la regla de css
+                        }
+                    },
                     {
                         loader: "sass-loader", //translates SCSS into CSS
                         options: {

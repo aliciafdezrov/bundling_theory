@@ -1,5 +1,6 @@
 import React from 'react';
 import { getTotalScore } from './averageService';
+const classes = require('./totalScoreComponentStyles.scss');
 export const TotalScoreComponent: React.FunctionComponent = () => {
   const [totalScore, setTotalScore] = React.useState < number > (0);
   React.useEffect(() => {
@@ -8,7 +9,7 @@ export const TotalScoreComponent: React.FunctionComponent = () => {
   }, []);
   return (
     <div>
- <span className="result-background">
+ <span  className={classes.resultBackground}>
  Students total score: {totalScore}
  </span>
     </div>

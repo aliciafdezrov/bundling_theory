@@ -1,4 +1,10 @@
 $background: teal;
+$jumbotronBackground: darkseagreen;
 .result-background {
   background-color: $background;
+}
+:global(.jumbotron).result-background { //Indica que jumbotron es un estilo global que estamos sobreescribiendo
+  // para que no lo modifique según la regla que pusimos con css-loader en webpack
+  background-color: $jumbotronBackground;
+  display: block;
 }
