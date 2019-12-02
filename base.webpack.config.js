@@ -57,10 +57,6 @@ module.exports = {
         new HtmlWebpackPlugin({ //Pega el index.html a dist y le inyecta solo al html el bundle.js
             filename: "index.html", // este el nombre que va a la carpeta dist
             template: "index.html", // fichero origen
-        }),
-        new MiniCssExtractPlugin({
-            filename: "[name].[chunkhash].css", //Le añadimos el hash para evitar que se cacheen los estilos
-            chunkFilename: "[id].css"
         })
     ]
 };
