@@ -13,10 +13,6 @@ module.exports = {
         appStyles: ["./mystyle.scss"],
         vendorStyles: ["../node_modules/bootstrap/dist/css/bootstrap.css"]
     },
-    output: {
-        filename: "[name].[chunkhash].js"
-    },
-    devtool: "inline-source-map", //Depurar TypeScript desde chrome, está configuración sólo sirve para desarrollo.
     optimization: {
         splitChunks: {
             cacheGroups: { //Vamos a especificar que chunks va a haber
@@ -35,32 +31,6 @@ module.exports = {
                 test: /\.jsx?$/, //Si la extensión es .js o .jsx usa babel-loader
                 exclude: /node_modules/,
                 loader: "babel-loader"
-            },
-            {
-                test: /\.css$/, //El fichero de estilos de bootstrap está dentro de node-modules por lo que no podemos excluirlo
-                use: [MiniCssExtractPlugin.loader, "css-loader"] //En pre-producción podríamos cambiar el mini-css-extract-plugin por el style loader
-            },
-            {
-                test: /\.scss$/,
-                exclude: /node_modules/,
-                use: [
-                    MiniCssExtractPlugin.loader, // creates style nodes from JS strings //En desarrollo este se puede cambiar por styles-loader
-                    {
-                        loader: "css-loader", // translates CSS into CommonJS
-                        options: {
-                            modules: {
-                                localIdentName: '[name]_[local]_[hash:base64:5]'
-                            },
-                            localsConvention: 'camelCase', //permite usar los estilos con camel case en vez de usando el nombre original de la regla de css
-                        }
-                    },
-                    {
-                        loader: "sass-loader", //translates SCSS into CSS
-                        options: {
-                            implementation: require("sass") //By default the sass-loader prefers node-sass. In order to avoid this situation you can use the implementation option
-                        }
-                    }
-                ]
             },
             {
                 test: /\.(png|jpg)$/,
